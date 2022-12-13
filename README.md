@@ -23,3 +23,25 @@
         - Add TS
         - Add HTML
         - Add CSS
+- Search
+    - Add method to Food Service
+    - Add search route
+    - Show search result in Home component
+    - Generate search component
+        - Add to Home component
+        - Add TS
+        - Add HTML
+        - Add CSS
+- Tags Bar
+    - Create Tag Model
+    - Add Sample tags to data.ts
+    - Food service
+        - Add get all tags method
+        - Add get foods by tag method
+    - Add tags route
+    - Show tag result in Home componen
+    - Generate tags component
+        - Add to home component
+        - Add TS
+        - Add HTML
+        - Add CSS
