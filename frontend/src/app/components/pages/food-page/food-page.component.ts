@@ -25,7 +25,9 @@ export class FoodPageComponent implements OnInit {
   ) { 
     activatedRoute.params.subscribe(params => {
       // calling injected service method with the parameter's id
-      this.food = this.foodService.getFoodById(params.id);
+      this.foodService.getFoodById(params.id).subscribe(serverFood =>{
+        this.food = serverFood;
+      });
     });
   }
 

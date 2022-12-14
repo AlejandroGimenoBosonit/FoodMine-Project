@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Food } from '../../../shared/models/Food';
 import { FoodServiceTsService } from '../../../services/food.service.ts.service';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -21,18 +22,34 @@ export class HomeComponent implements OnInit {
     // Provides access to information about a route associated with a component that is loaded in an outlet.
     private activatedRoute:ActivatedRoute
     ) { 
-
+      // let foodObservable: Observable<Food[]>;
       activatedRoute.params.subscribe((params)=>{
+
         const searchTerm: string = params.searchTerm;
+        const tag: string = params.tag;
         
         if(searchTerm){
           // update local variable to display 
-          this.foods = this.foodService.getAllFoodsBySearchTerm(searchTerm);
-        }else if(params.tag) {
-          this.foods = this.foodService.getAllFoodsByTag(params.tag);
+          this.foodService
+              .getAllFoodsBySearchTerm(searchTerm)
+              .subscribe((element)=> {
+                this.foods = element;
+              });
+        }else if(tag) {
+          this.foodService
+              .getAllFoodsByTag(params.tag)
+              .subscribe(element => {
+                this.foods = element;
+              });
+         
+          
         }else{
-        // update local variable
-        this.foods = foodService.getAll();
+          // update local variable
+          foodService
+          .getAll()
+          .subscribe((element)=>{
+            this.foods = element;
+          });
         }
       });
 
