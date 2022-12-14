@@ -1,6 +1,10 @@
 <!-- Calling search component -->
 <app-search></app-search>
 <app-tags></app-tags>
+<app-not-found
+  [visible]="!foods || !foods.length"
+  resetLinkText="Reset Search"
+></app-not-found>
 
 <ul>
   <!-- As much elements as local food variable stores -->
