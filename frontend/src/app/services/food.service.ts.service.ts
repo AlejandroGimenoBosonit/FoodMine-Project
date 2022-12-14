@@ -36,4 +36,10 @@ export class FoodServiceTsService {
     this.getAll().filter((product: Food)=>product.tags?.includes(tag))
   }
 
+  // get product by Id
+  getFoodById(id: string):Food {
+    // a single food can be undefined so in this case it will return a new Food instance
+    return this.getAll().find((product: Food)=> product.id === id) ?? new Food();
+  }
+
 }
