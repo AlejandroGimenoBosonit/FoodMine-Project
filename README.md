@@ -45,3 +45,11 @@
         - Add TS
         - Add HTML
         - Add CSS
+- Food Page
+    - Add method to food service
+    - Generate food page component
+        - Add Route
+        - Add TS
+        - Add HTML
+        - Add CSS
+        
