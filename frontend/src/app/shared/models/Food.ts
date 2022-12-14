@@ -1,4 +1,3 @@
-// Typescript types to import
 
 export class Food {
     id!: string;

@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 // Types
 import { Food } from '../../../shared/models/Food';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FoodServiceTsService } from '../../../services/food.service.ts.service';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-food-page',
@@ -18,7 +19,9 @@ export class FoodPageComponent implements OnInit {
   // inject activatedRoute to extract url's id and call a service by the id
   constructor(
     private activatedRoute:ActivatedRoute,
-    private foodService: FoodServiceTsService
+    private foodService: FoodServiceTsService,
+    private cartService: CartService,
+    private router: Router
   ) { 
     activatedRoute.params.subscribe(params => {
       // calling injected service method with the parameter's id
@@ -27,6 +30,13 @@ export class FoodPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  // methods
+  addToCart(): void{
+    this.cartService.addToCart(this.food);
+    // navigate
+    this.router.navigateByUrl('/cart-page');
   }
 
 }
