@@ -62,3 +62,12 @@
         - Add TS
         - Add HTML
         - Add CSS
+- Not Found
+    - Generate 'Not Found' page component
+        - Add TS
+        - Add HTML
+        - Add CSS
+    - Generate To Pages
+        - Home Page
+        - Food Page
+        - Cart Page
