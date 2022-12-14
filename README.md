@@ -52,4 +52,13 @@
         - Add TS
         - Add HTML
         - Add CSS
-        
+- Cart Page
+    - Create CartItem model
+    - Create Cart model
+    - Generate Cart Service
+    - Add to Cart Button in Food Page
+    - Generate Cart page component
+        - Add Route
+        - Add TS
+        - Add HTML
+        - Add CSS
