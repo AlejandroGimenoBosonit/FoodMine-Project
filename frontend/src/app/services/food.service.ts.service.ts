@@ -35,8 +35,6 @@ export class FoodServiceTsService {
 
   // get all products by Tags
   getAllFoodsByTag(tag: string): Observable<Food[]> {
-    console.log(tag+'pppp');
-    
     return tag === "All" ?
     this.getAll() :  
     this.http.get<Food[]>(FOODS_BY_TAG_URL + tag);

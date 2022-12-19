@@ -86,3 +86,28 @@
     - Add urs.ts to frontend
     - Add HttpClient module
     - Update food service
+- Login Page
+    - Generate Component
+        - Add to Routes
+        - Add TS
+        - Add HTML
+            - Reactive Forms
+        - Add CSS
+    - Add Login API
+        - Use JSON
+        - Use Json web token
+        - test unit postman
+    - Generate user service
+        - Generate user model
+        - Add user subject
+        - Add login method
+            - Add user Urls
+            - Generate IUserLogin interface
+            - Add ngx-toastr
+                - Import Module
+                - Import BrowserAnimationsModule
+                - Add styles in angular.json
+            - Add to Header
+        - Add local storage methods
+        - add logout method
+            - Add to header
