@@ -1,0 +1,33 @@
+<form
+[formGroup]="loginForm"
+(ngSubmit)="submit()"
+>
+    <div class="input-container">
+        <label>Email</label>
+        <div>
+            <input type="email" placeholder="Email here..." formControlName="email" />
+        </div>
+        <!-- Conditional error message -->
+        <span class="error-list" *ngIf="validField('email')">
+            {{ emaiErrorlMssg }}
+        </span>
+    </div>
+
+    <div class="input-container">
+        <label>Password</label>
+        <div>
+            <input type="password" placeholder="Password here..." formControlName="password" />
+        </div>
+        <!-- Conditional error message -->
+        <span *ngIf="validField('password')">
+            {{ passwordErrorMessage }}
+        </span>
+    </div>
+
+    <div class="button">
+        <button type="submit">Login</button>
+    </div>
+
+    
+
+</form>

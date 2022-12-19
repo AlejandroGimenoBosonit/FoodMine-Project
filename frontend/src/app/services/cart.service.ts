@@ -23,8 +23,6 @@ export class CartService {
   addToCart(food: Food): void{
     // We need to isolate an ITEM from CART
     let cartItem = this.cart.items.find((item: CartItem)=> item.food.id === food.id);
-    console.log(cartItem);
-    
     // if the product is in the cart then leave this function
     if(cartItem){
       return;

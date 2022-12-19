@@ -70,12 +70,41 @@ export const sample_foods: any[] = [
 ];
 
 export const sample_tags:any[] = [
-    { name: 'All', count: 6 },
-    { name: 'FastFood', count: 4 },
-    { name: 'Pizza', count: 2 },
-    { name: 'Lunch', count: 3 },
-    { name: 'SlowFood', count: 2 },
-    { name: 'Hamburger', count: 1 },
-    { name: 'Fry', count: 1 },
-    { name: 'Soup', count: 1 },
-  ]
+  { name: 'All', count: 6 },
+  { name: 'FastFood', count: 4 },
+  { name: 'Pizza', count: 2 },
+  { name: 'Lunch', count: 3 },
+  { name: 'SlowFood', count: 2 },
+  { name: 'Hamburger', count: 1 },
+  { name: 'Fry', count: 1 },
+  { name: 'Soup', count: 1 },
+];
+
+
+export interface User {
+  id?:string
+  name?: string;
+  email?: string;
+  password?: string;
+  address?: string;
+  isAdmin?: boolean
+}
+
+export const sample_users: User[] = [
+  {
+    id: "1",
+    name: "John Doe",
+    email: "jDoe@mail.com",
+    password: "12345678",
+    address: "Toronto On",
+    isAdmin: true
+  },
+  {
+    id: "2",
+    name: "Jane Doe",
+    email: "jane@mail.com",
+    password: "87654321",
+    address: "Shangai",
+    isAdmin: false 
+  },
+];
