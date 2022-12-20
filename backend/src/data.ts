@@ -8,7 +8,7 @@ export const sample_foods: any[] = [
         price: 10,
         favorite: false,
         origins: ['italy'],
-        stars: 4.5,
+        stars: 4,
         imageUrl: './assets/food-1.jpg',
         tags: ['FastFood', 'Pizza', 'Lunch'],
       },
