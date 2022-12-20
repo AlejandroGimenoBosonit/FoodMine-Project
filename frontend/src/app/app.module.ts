@@ -19,6 +19,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import {RatingModule} from 'primeng/rating';
+
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { MessageService } from 'primeng/api';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastModule
+    ToastModule,
+    RatingModule,
+    FormsModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

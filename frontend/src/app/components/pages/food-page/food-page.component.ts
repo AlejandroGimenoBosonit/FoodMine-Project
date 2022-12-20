@@ -15,6 +15,8 @@ export class FoodPageComponent implements OnInit {
 
   // local product information
   food!: Food;
+  readOnly: boolean = true;
+  starsNumber: number = 5;
 
   // inject activatedRoute to extract url's id and call a service by the id
   constructor(
