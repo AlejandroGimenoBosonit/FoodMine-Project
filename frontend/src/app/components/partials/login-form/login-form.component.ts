@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -6,26 +6,26 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css']
+  styleUrls: ['./login-form.component.css'],
 })
 export class LoginFormComponent implements OnInit {
 
   // reactive form
-  loginForm!: FormGroup; 
+  loginForm!: FormGroup;
   isSubmited: boolean = false;
   returnUrl: string = '';
 
   constructor(
     private fb: FormBuilder,
     private us: UserService,
-    private ar:ActivatedRoute,
+    private ar: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]]
+      password: ['', [Validators.required, Validators.minLength(8)]],
     });
 
     // activatedRoute = Provides access to information about a route associated with a component that is loaded in an outlet.
@@ -36,13 +36,12 @@ export class LoginFormComponent implements OnInit {
   // methods
 
   // get form controls
-  get fc(){
+  get fc() {
     return this.loginForm.controls;
   }
 
-  
   // get email message to process by validField Function
-  get emaiErrorlMssg(): string{
+  get emaiErrorlMssg(): string {
     // isolate error mssg
     const error = this.loginForm.get('email')?.errors;
 
@@ -57,10 +56,9 @@ export class LoginFormComponent implements OnInit {
     return '';
   }
 
-  get passwordErrorMessage(): string{
+  get passwordErrorMessage(): string {
     // isolate error mssg
     const error = this.loginForm.get('email')?.errors;
-    
 
     if (error?.['required']) {
       return 'Password is required!';
@@ -72,20 +70,25 @@ export class LoginFormComponent implements OnInit {
   }
   // function that returns true or false if login form has been touched(or not) and contains a valid value(or not)
   validField(field: string): boolean | undefined {
-    return this.loginForm.get(field)?.invalid && this.loginForm.get(field)?.touched; 
+    return (
+      this.loginForm.get(field)?.invalid && this.loginForm.get(field)?.touched
+    );
   }
 
   submit() {
     this.isSubmited = true;
     // if form is invalid don't submit information
-    if(this.loginForm.invalid) return;
+    if (this.loginForm.invalid) return;
 
     // service
-    this.us
-        .login(this.loginForm.value)
-        .subscribe(() => {
-          this.router.navigateByUrl(this.returnUrl);
-        });
+    this.us.login(this.loginForm.value).subscribe(() => {
+      // this.messageService.add({
+      //   key: 'myKey1',
+      //   severity: 'success',
+      //   summary: 'Login Successful!!',
+      //   detail: 'User Logged successfully!',
+      // });
+      this.router.navigateByUrl(this.returnUrl);
+    });
   }
-
 }
