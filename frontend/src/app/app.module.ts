@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/pages/home/home.component';
-import { RatingModule } from 'ng-starrating';
+// import { RatingModule } from 'ng-starrating';
 import { SearchComponent } from './components/partials/search/search.component';
 import { HeaderComponent } from './components/partials/header/header.component';
 import { TagsComponent } from './components/partials/tags/tags.component';
@@ -15,7 +15,10 @@ import { NotFoundComponent } from './components/partials/not-found/not-found.com
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
 import { LoginFormComponent } from './components/partials/login-form/login-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'; 
+
+import {ToastModule} from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -34,12 +37,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RatingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
