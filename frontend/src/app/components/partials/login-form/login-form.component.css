@@ -7,4 +7,25 @@ form{
 
 .error-list{
     color: red;
+    margin-left: 10px;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+button{
+    width: 150px;
+    color: white;
+    background: #e72929;
+    border: none;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 10rem;
+}
+
+button:hover{
+    opacity: 0.9;
+    cursor: pointer;
 }

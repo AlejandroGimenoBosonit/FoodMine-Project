@@ -22,6 +22,7 @@ import { MessageService } from 'primeng/api';
 import {RatingModule} from 'primeng/rating';
 
 import { FormsModule } from '@angular/forms';
+import { InputContainerComponent } from './components/partials/input-container/input-container.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FormsModule } from '@angular/forms';
     TitleComponent,
     NotFoundComponent,
     LoginPageComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    InputContainerComponent
   ],
   imports: [
     BrowserModule,
