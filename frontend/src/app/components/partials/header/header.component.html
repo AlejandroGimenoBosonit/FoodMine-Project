@@ -1,30 +1,29 @@
 <header>
-    <div class="container">
-        <!-- logo -->
-        <a routerLink="/" class="logo">Food Mine!</a>
-        <nav>
-            <ul>
-
-                <!-- login route -->
-                <li>
-                    <a routerLink="/login">Login</a>
-                </li>
-                <!-- Menu -->
-                <li class="menu-container">
-                    <a routerLink="/dashboard">John</a>
-                    <!-- menu dashboard -->
-                    <div class="menu">
-                        <a routerLink="/profile">Profile!</a>
-                        <a routerLink="/orders">Orders</a>
-                        <a routerLink="">Logout</a>
-                    </div>
-                </li>
-                <li>
-                    <a routerLink="/cart-page">
-                        Cart <span *ngIf="cartQty">{{ cartQty }}</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+  <div class="container">
+    <!-- logo -->
+    <a routerLink="/" class="logo">Food Mine!</a>
+    <nav>
+      <ul>
+        <!-- login route -->
+        <li *ngIf="!user">
+          <a routerLink="/login">Login</a>
+        </li>
+        <!-- Menu -->
+        <li *ngIf="user" class="menu-container">
+          <a routerLink="/dashboard">{{ user.name }}</a>
+          <!-- menu dashboard -->
+          <div class="menu">
+            <a routerLink="/profile">Profile!</a>
+            <a routerLink="/orders">Orders</a>
+            <a routerLink="" (click)="logout()">Logout</a>
+          </div>
+        </li>
+        <li>
+          <a routerLink="/cart-page">
+            Cart <span *ngIf="cartQty">{{ cartQty }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
