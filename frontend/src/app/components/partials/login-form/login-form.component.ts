@@ -68,6 +68,7 @@ export class LoginFormComponent implements OnInit {
 
     return '';
   }
+  
   // function that returns true or false if login form has been touched(or not) and contains a valid value(or not)
   validField(field: string): boolean | undefined {
     return (
@@ -82,12 +83,6 @@ export class LoginFormComponent implements OnInit {
 
     // service
     this.us.login(this.loginForm.value).subscribe(() => {
-      // this.messageService.add({
-      //   key: 'myKey1',
-      //   severity: 'success',
-      //   summary: 'Login Successful!!',
-      //   detail: 'User Logged successfully!',
-      // });
       this.router.navigateByUrl(this.returnUrl);
     });
   }
