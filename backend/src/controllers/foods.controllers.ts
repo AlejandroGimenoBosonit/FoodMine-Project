@@ -2,21 +2,42 @@ import { Request, Response } from "express";
 
 // provisional ddbb
 import { sample_foods } from "../data";
+import { FoodModel } from '../database/Schemas/Food';
 
-export const getAllProducts = (request: Request, response: Response) => {
-  if (sample_foods) {
-    return response.status(200).send(sample_foods);
-  } else {
-    return response.status(400).send("Error returning products");
+export const getAllProducts = async(request: Request, response: Response) => {
+  try {
+    // check if there is products
+    const foodContent = await FoodModel.countDocuments();
+    // If there is products send them
+    if(foodContent === 0){
+      return response.status(401).send('There are no products');
+    }
+    const paylaod = await FoodModel.find();
+    return response.status(200).send(paylaod);
+
+  } catch (error) {
+      return response.status(500).send('Internal Server Error');
   }
 };
 
-export const getProductById = (request: Request, response: Response) => {
-  const foodId = request.params.id;
-  if (sample_foods) {
-    const food = sample_foods.find((food) => food.id === foodId);
-    return response.send(food);
-  } else {
-    return response.status(400).send("Error returning products");
+export const getProductById = async(request: Request, response: Response) => {
+  try {
+    const id = request.params.id;
+    
+    // check if there is products
+    const foodContent = await FoodModel.countDocuments();
+    // If there is products send them
+    if(foodContent === 0){
+      return response.status(401).send('There are no products');
+    }
+    const payload = await FoodModel.findById({_id:id});
+    
+    return response.status(200).send(payload);
+
+  } catch (error) {
+    return response.status(500).send('Internal Server Error');
   }
-};
+}; 
+
+
+
