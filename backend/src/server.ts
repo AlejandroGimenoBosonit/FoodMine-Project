@@ -1,9 +1,13 @@
 import express, { application, Request, Response } from "express";
 import cors from "cors";
 
+// mongoDB connection
+require('./database/database');
+
 // routes
 import foodRoutes from "./routes/foods.routes";
 import authRoutes from "./routes/auth.routes";
+import seedRoutes from "./routes/seed.routes";
 
 const app = express();
 
@@ -19,12 +23,11 @@ app.use(
   })
 );
 
-
-
 app.use("/api/foods", foodRoutes);
+app.use("/api/seeds", seedRoutes);
 app.use("/api/users", authRoutes);
 
-const PORT: number = 5000;
+const PORT: number = parseInt(process.env.PORT!) || 5000;
 
 app.listen(PORT, () =>
   console.log(`Server running on "http://localhost:${PORT}"`)

@@ -1,11 +1,13 @@
-import express, { Request, Response, Router } from "express";
+import express, { Router } from "express";
+
 // child routes
 import searchFoods from "./searchFoods.routes";
 import tagFoods from "./tagsFoods.routes";
+
 // controllers
 import {
   getAllProducts,
-  getProductById,
+  getProductById
 } from "../controllers/foods.controllers";
 
 // router
